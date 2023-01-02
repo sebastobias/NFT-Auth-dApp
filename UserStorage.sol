@@ -70,7 +70,7 @@ contract UserStorage {
 
     function deleteMyUser() external {
         delete addressToUserInfo[msg.sender];
-        profileCreated[msg.sender] = true;
+        profileCreated[msg.sender] = false;
     }
 
     function claimMember(uint256[] calldata tokenIds) external {
@@ -159,7 +159,10 @@ contract UserStorage {
             for(uint256 i = 0; i < tokenIdsMember.length; i++) {
                 memberNftsRewardClaimed = usedIdsMember[tokenIdsMember[i]];
             }  
-            require(!memberNftsRewardClaimed, "Rewards already claimed");
+
+            if (memberNftsRewardClaimed) {
+                return 0;
+            }
 
             uint256[] memory tokenIds = member.tokensOfOwner(_address);
 
@@ -173,7 +176,9 @@ contract UserStorage {
             uint256[] memory tokenIdsVip = vip.tokensOfOwner(_address);
 
             for(uint256 i = 0; i < tokenIdsVip.length; i++) {
-                require(!usedIdsVip[tokenIdsVip[i]], "NFT/NFTs already used");
+               if(usedIdsVip[tokenIdsVip[i]]) {
+                   return 0;
+               }
             }  
 
             earned += 75 ether * tokenIdsVip.length;
