@@ -1,0 +1,58 @@
+body {
+  color: #ffffff;
+  margin: 0;
+  font-size: 0.8125rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  background: #0f0c29; /* fallback for old browsers */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: -webkit-linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card-background {
+  background: -webkit-linear-gradient(to right, #24383e, #2b4863, #0c1529);
+  background: linear-gradient(to right, #24243e, #141227, #0f0c29);
+}
+
+.inputprofile {
+  background-color: transparent;
+  font-weight: lighter;
+  color: white;
+  border: solid 1px #d9ddf5;
+  border-radius: 5px;
+  height: 2rem;
+}
+
+.inputprofile:hover {
+  transform: translateY(2px);
+}
+
+.table-item {
+  border: 1px solid gray;
+  font-weight: lighter;
+}
+
+.table-glow {
+  -webkit-box-shadow: 0px 0px 255px 47px rgba(169, 171, 99, 0.59);
+  -moz-box-shadow: 0px 0px 255px 47px rgba(169, 171, 99, 0.59);
+  box-shadow: 0px 0px 255px 47px rgba(169, 171, 99, 0.59);
+}
+
+.buttonmint {
+  background: transparent;
+  border: solid 1.5px white;
+  box-shadow: 1px 1px 20px yellow;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
