@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MemberNFT is ERC721Enumerable, Ownable{
+contract CitizenNFT is ERC721Enumerable, Ownable {
 
     uint256 public maxSupply = 1000;
     uint256 public maxMint = 15;
@@ -12,7 +12,7 @@ contract MemberNFT is ERC721Enumerable, Ownable{
     string public baseExtension = '.json';
     bool public paused = false;
 
-    constructor() ERC721("Member NFT", "MEMBERNFT") { }
+    constructor() ERC721("Citizen NFT", "CITIZENNFT") { }
 
     function mint(address _to, uint256 _amount) public {
         uint256 supply = totalSupply();
@@ -21,7 +21,7 @@ contract MemberNFT is ERC721Enumerable, Ownable{
         require(_amount > 0);
         require(_amount < maxMint);
 
-        for(uint256 i = 0; i < _amount; i++) {
+        for(uint256 i = 1; i <= _amount ; i++) {
             _safeMint(_to, supply + i);
         }
     }
@@ -70,6 +70,8 @@ contract MemberNFT is ERC721Enumerable, Ownable{
         require(address(this).balance > 0, "Contract has no balance to withdraw");
         require(payable(msg.sender).send(address(this).balance), "Transfer failed");
     }
+
+
 
 } 
 
